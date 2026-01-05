@@ -57,4 +57,4 @@ npm run dist
 
 ---
 
-_Creato con ❤️ da Antigravity_
+_Creato con ❤️ da CosmoNet.info_
