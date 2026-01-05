@@ -1,60 +1,60 @@
 # OmniConvert ⚡🌌
 
-**The Ultimate Multi-Format Converter with a Neon Cyberpunk Soul.**
+**Il Convertitore Multi-Formato Definitivo con Anima Cyberpunk.**
 
-OmniConvert is a professional, high-performance desktop application designed for seamless file conversion across 300+ formats. Built with **Electron** and **Node.js**, it combines robust native processing power (FFmpeg, Sharp, PDF-Lib) with a stunning, futuristic user interface.
+OmniConvert è un'applicazione desktop professionale ad alte prestazioni, progettata per la conversione fluida di file tra oltre 300 formati. Costruita con **Electron** e **Node.js**, combina una robusta potenza di elaborazione nativa (FFmpeg, Sharp, PDF-Lib) con un'interfaccia utente futuristica e mozzafiato.
 
-![OmniConvert Screenshot](public/logo.png)
+![Screenshot OmniConvert](public/logo.png)
 
-## ✨ Key Features
+## ✨ Funzionalità Chiave
 
-- **🎨 Universal Format Support**:
+- **🎨 Supporto Formati Universale**:
 
-  - **Images**: JPG, PNG, WEBP, AVIF, TIFF, HEIC, GIF, SVG, ICO...
+  - **Immagini**: JPG, PNG, WEBP, AVIF, TIFF, HEIC, GIF, SVG, ICO...
   - **Video**: MP4, WEBM, MKV, AVI, MOV, 3GP, HEVC...
   - **Audio**: MP3, WAV, FLAC, OGG, AAC, M4A...
-  - **Documents**: PDF <-> DOCX, HTML, TXT conversion.
-  - **Archives**: Create ZIP, TAR, GZ archives instantly.
+  - **Documenti**: Conversione PDF <-> DOCX, HTML, TXT.
+  - **Archivi**: Crea archivi ZIP, TAR, GZ istantaneamente.
 
-- **🚀 High Performance**: Built on native Node.js modules for maximum speed. No cloud uploads required for most operations – your files say private.
+- **🚀 Alte Prestazioni**: Costruito su moduli Node.js nativi per la massima velocità. Nessun caricamento su cloud richiesto per la maggior parte delle operazioni: i tuoi file rimangono privati.
 
-- **💎 Cyberpunk Aesthetics**: A fully custom, "Hollow Neon" interface with mesh gradients, Orbitron typography, and glassmorphism effects.
+- **💎 Estetica Cyberpunk**: Un'interfaccia completamente personalizzata in stile "Hollow Neon", con sfumature mesh, tipografia Orbitron ed effetti glassmorphism.
 
-- **🔒 Privacy First**: Functions as a portable offline app.
+- **🔒 Privacy First**: Funziona come un'app portatile offline.
 
-- **📦 Portable & Installer**: Available as a standard Windows Setup (`.exe`) or a zero-installation Portable app.
+- **📦 Portatile & Installer**: Disponibile come installazione standard di Windows (`.exe`) o come app Portatile zero-installazione.
 
-## 🛠️ Built With
+## 🛠️ Costruito Con
 
 - **Core**: [Node.js](https://nodejs.org/), [Electron](https://www.electronjs.org/)
-- **Frontend**: HTML5, CSS3 (Variables, Mesh Gradients), Vanilla JS
-- **Processing Engines**:
+- **Frontend**: HTML5, CSS3 (Variabili, Mesh Gradients), Vanilla JS
+- **Motori di Elaborazione**:
   - `fluent-ffmpeg` & `ffmpeg-static` (Media)
-  - `sharp` (High-speed Image Processing)
-  - `pdf-lib` & `mammoth` (Documents)
-  - `archiver` (Compression)
+  - `sharp` (Elaborazione Immagini ad Alta Velocità)
+  - `pdf-lib` & `mammoth` (Documenti)
+  - `archiver` (Compressione)
 
-## 📥 Installation
+## 📥 Installazione
 
-1.  Download the latest release from the [Releases](releases) page.
-2.  Run `OmniConvert Setup.exe` to install, or use the Portable version directly.
+1.  Scarica l'ultima release dalla pagina [Releases](releases).
+2.  Esegui `OmniConvert Setup.exe` per installare, oppure usa direttamente la versione Portable.
 
-## 🔧 Development
+## 🔧 Sviluppo
 
 ```bash
-# Clone the repo
-git clone https://github.com/YourUsername/OmniConvert.git
+# Clona la repository
+git clone https://github.com/CosmoNetinfo/OmniConvert.git
 
-# Install dependencies
+# Installa le dipendenze
 npm install
 
-# Run development server
+# Avvia il server di sviluppo
 npm run dev
 
-# Build for Windows
+# Compila per Windows
 npm run dist
 ```
 
 ---
 
-_Created with ❤️ by Antigravity_
+_Creato con ❤️ da Antigravity_
