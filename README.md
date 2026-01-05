@@ -1,54 +1,60 @@
-# OmniConvert
+# OmniConvert ⚡🌌
 
-OmniConvert is a powerful, high-fidelity file conversion application designed with a premium aesthetic and ease of use in mind. It supports conversion between various formats including images, audio, and video.
+**The Ultimate Multi-Format Converter with a Neon Cyberpunk Soul.**
 
-## Features
+OmniConvert is a professional, high-performance desktop application designed for seamless file conversion across 300+ formats. Built with **Electron** and **Node.js**, it combines robust native processing power (FFmpeg, Sharp, PDF-Lib) with a stunning, futuristic user interface.
 
-- **Multi-Format Support**: Convert Images, Audio, and Video files.
-- **Drag & Drop Interface**: Simple and intuitive file upload.
-- **Premium Design**: sleek, glassmorphism-inspired UI.
-- **Real-time Progress**: Visual feedback during file processing.
+![OmniConvert Screenshot](public/logo.png)
 
-## Supported Formats
+## ✨ Key Features
 
-- **Images**: PNG, JPG, WEBP, GIF, TIFF, AVIF, HEIC
-- **Audio**: MP3, WAV, OGG, FLAC, AAC, M4A
-- **Video**: MP4, WEBM, AVI, MKV, MOV, FLV, WMV
+- **🎨 Universal Format Support**:
 
-## Prerequisites
+  - **Images**: JPG, PNG, WEBP, AVIF, TIFF, HEIC, GIF, SVG, ICO...
+  - **Video**: MP4, WEBM, MKV, AVI, MOV, 3GP, HEVC...
+  - **Audio**: MP3, WAV, FLAC, OGG, AAC, M4A...
+  - **Documents**: PDF <-> DOCX, HTML, TXT conversion.
+  - **Archives**: Create ZIP, TAR, GZ archives instantly.
 
-- **Node.js**: Ensure Node.js is installed.
-- **FFmpeg**: Required for Audio and Video conversion.
-  - **Windows**: Download from [ffmpeg.org](https://ffmpeg.org/download.html), extract, and add the `bin` folder to your System PATH environment variable.
-  - **Mac**: `brew install ffmpeg`
-  - **Linux**: `sudo apt install ffmpeg`
+- **🚀 High Performance**: Built on native Node.js modules for maximum speed. No cloud uploads required for most operations – your files say private.
 
-## Setup & Running
+- **💎 Cyberpunk Aesthetics**: A fully custom, "Hollow Neon" interface with mesh gradients, Orbitron typography, and glassmorphism effects.
 
-1.  **Install Dependencies**:
+- **🔒 Privacy First**: Functions as a portable offline app.
 
-    ```bash
-    npm install
-    ```
+- **📦 Portable & Installer**: Available as a standard Windows Setup (`.exe`) or a zero-installation Portable app.
 
-2.  **Start the Server**:
+## 🛠️ Built With
 
-    ```bash
-    npm start
-    ```
+- **Core**: [Node.js](https://nodejs.org/), [Electron](https://www.electronjs.org/)
+- **Frontend**: HTML5, CSS3 (Variables, Mesh Gradients), Vanilla JS
+- **Processing Engines**:
+  - `fluent-ffmpeg` & `ffmpeg-static` (Media)
+  - `sharp` (High-speed Image Processing)
+  - `pdf-lib` & `mammoth` (Documents)
+  - `archiver` (Compression)
 
-    Or for development with auto-restart:
+## 📥 Installation
 
-    ```bash
-    npm run dev
-    ```
+1.  Download the latest release from the [Releases](releases) page.
+2.  Run `OmniConvert Setup.exe` to install, or use the Portable version directly.
 
-3.  **Access the App**:
-    Open your browser and navigate to `http://localhost:3000`.
+## 🔧 Development
 
-## Project Structure
+```bash
+# Clone the repo
+git clone https://github.com/YourUsername/OmniConvert.git
 
-- `public/`: Frontend files (HTML, CSS, JS).
-- `server/`: Backend Logic (Node.js/Express).
-- `uploads/`: Temporary storage for uploaded files.
-- `converted/`: Storage for converted output files.
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for Windows
+npm run dist
+```
+
+---
+
+_Created with ❤️ by Antigravity_
