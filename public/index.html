@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniConvert | Convertitore Multi-Formato Professionale</title>
+    <meta name="description" content="Lo strumento definitivo per la conversione di file di alta qualità. Immagini, video e audio convertiti in pochi secondi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="OmniConvert" class="logo-img" style="height: 48px; border-radius: 12px;">
+        <span>OmniConvert</span>
+      </div>
+      <nav>
+        <a href="#" class="nav-home active">Convertitore</a>
+        <a href="#" class="nav-formats">Formati</a>
+        <a href="#" class="nav-guide">Guida</a>
+      </nav>
+        <div class="user-profile">
+            <img src="logo.png" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <h3>Conversioni Recenti</h3>
+            <div id="recent-list" class="recent-list">
+                <div class="empty-state">Nessuna attività recente</div>
+            </div>
+        </aside>
+
+        <section class="drop-zone-container">
+            <div class="drop-zone" id="drop-zone">
+                <div class="glow-border"></div>
+                <div class="drop-content">
+                    <div class="upload-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16V8M12 8L9 11M12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 15V16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16V15M3 9V8C3 5.79086 4.79086 4 7 4H17C19.2091 4 21 5.79086 21 8V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>Trascina i file qui o <span class="browse-link">Sfoglia</span></h2>
+                    <p>Supporta 300+ formati (Immagini, Audio, Video, Archivi)</p>
+                    <input type="file" id="file-input" hidden>
+                </div>
+            </div>
+
+            <div id="conversion-controls" class="conversion-controls hidden">
+                <div class="file-info">
+                    <span id="file-name">nomefile.ext</span>
+                    <span id="file-size">0 KB</span>
+                </div>
+                <div class="rename-container" style="margin-bottom: 1rem;">
+                    <label for="custom-filename" style="display:block; font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 0.25rem;">Rinomina file (opzionale):</label>
+                    <input type="text" id="custom-filename" placeholder="Nome del file finale" style="width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white;">
+                </div>
+                <div class="target-selector">
+                    <span>Converti in</span>
+                    <select id="target-format">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+                <button id="convert-btn">Converti Ora</button>
+            </div>
+
+            <div id="progress-container" class="progress-container hidden">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="status-text">Caricamento ed elaborazione in corso...</p>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="success-icon">✓</div>
+                <h3>Conversione Pronta!</h3>
+                <a id="download-link" href="#" class="download-btn" download>Scarica File Convertito</a>
+                <button id="reset-btn" class="secondary-btn">Converti Altro</button>
+            </div>
+        </section>
+
+        <div class="format-icons">
+            <div class="floating-icon">ZIP</div>
+            <div class="floating-icon">PNG</div>
+            <div class="floating-icon">MP4</div>
+            <div class="floating-icon">MP3</div>
+        </div>
+    </main>
+
+    <!-- Formats Library Modal -->
+    <div id="formats-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Formati Supportati</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="formats-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Guide Modal -->
+    <div id="guide-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Come Funziona</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Seleziona il File</h3>
+                        <p>Trascina un qualsiasi file (Immagine, Audio, Video, Documento, Archivio) nell'area principale, o clicca su "Sfoglia" per selezionarlo dal tuo computer.</p>
+                    </div>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Scegli il Formato</h3>
+                        <p>OmniConvert rileva automaticamente il tipo di file e suggerisce i formati compatibili. Seleziona il formato di destinazione desiderato dal menu a tendina.</p>
+                    </div>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Converti e Scarica</h3>
+                        <p>Clicca su "Converti Ora". Il nostro potente motore (FFmpeg/Sharp/ecc) elaborerà il file all'istante. Al termine, apparirà automaticamente il link per il download.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1)">
+                  <h3>Info Installazione</h3>
+                  <p style="color: #9ca3af; margin-top: 0.5rem">Questa applicazione è costruita con Node.js ed Electron. Può essere eseguita come server web portatile o installata come applicazione desktop.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

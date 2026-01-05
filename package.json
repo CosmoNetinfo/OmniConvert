@@ -1,0 +1,67 @@
+{
+  "name": "omniconvert",
+  "version": "1.0.0",
+  "description": "Multi-format file conversion service",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.omniconvert.app",
+    "productName": "OmniConvert",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "OmniConvert Setup ${version}.${ext}",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "OmniConvert Portable ${version}.${ext}"
+    },
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!uploads/*",
+      "!converted/*"
+    ]
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "decompress": "^4.2.1",
+    "docx": "^9.5.1",
+    "express": "^5.2.1",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "html-pdf": "^3.0.1",
+    "mammoth": "^1.11.0",
+    "multer": "^2.0.2",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "sharp": "^0.34.5",
+    "systeminformation": "^5.29.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8",
+    "png-to-ico": "^3.0.1"
+  }
+}

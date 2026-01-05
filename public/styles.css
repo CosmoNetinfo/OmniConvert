@@ -1,0 +1,394 @@
+:root {
+  /* Neon Cyberpunk Palette */
+  --bg-color: #050510;
+  --panel-bg: rgba(10, 10, 20, 0.7);
+  
+  --neon-blue: #00f3ff;
+  --neon-purple: #bd00ff;
+  --neon-pink: #ff0055;
+  
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(0, 243, 255, 0.1);
+  
+  --text-main: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.7);
+  
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  font-size: 16px;
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+/* Background Vignette */
+.background-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, #000 100%);
+  pointer-events: none;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 80px;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(5, 5, 16, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* Hollow Neon Style from Image 0 */
+  color: #050510; /* Dark fill matching bg */
+  -webkit-text-stroke: 1.5px #8b5cf6; /* Purple/Blue stroke */
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5); /* Soft outer glow */
+  /* Remove uppercase to match image 0 */
+}
+
+.logo img {
+  filter: drop-shadow(0 0 8px var(--neon-blue));
+  border: 1px solid var(--neon-blue);
+}
+
+/* Tech Nav */
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.3s;
+  padding: 0.5rem 0;
+}
+
+nav a:hover, nav a.active {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 2px;
+  background: var(--neon-blue);
+  box-shadow: 0 0 8px var(--neon-blue);
+}
+
+.user-profile img {
+  border: 2px solid var(--neon-purple);
+  box-shadow: 0 0 10px var(--neon-purple);
+  transition: transform 0.3s;
+}
+.user-profile img:hover { transform: scale(1.1); }
+
+
+/* --- MAIN LAYOUT --- */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr 100px;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+/* Cyber Panels */
+.sidebar, .drop-zone, .conversion-controls, .result-container {
+  background: var(--panel-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+/* Glowing Corners Effect via pseudo-elements would be complex, simplified to borders for now */
+
+/* -- SIDEBAR -- */
+.sidebar {
+  height: 500px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--neon-purple);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 5%);
+}
+
+.sidebar h3 {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--neon-blue);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+}
+
+.recent-list { overflow-y: auto; flex: 1; }
+.recent-item {
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 0.8rem 0;
+}
+.recent-item span:last-child { color: var(--neon-purple); font-weight: 700; }
+
+/* -- CENTER STAGE -- */
+.drop-zone-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.drop-zone {
+  width: 100%;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid var(--glass-border);
+  /* Tech Corners */
+  background: 
+    linear-gradient(to right, var(--neon-blue) 2px, transparent 2px) 0 0,
+    linear-gradient(to right, var(--neon-blue) 2px, transparent 2px) 0 100%,
+    linear-gradient(to left, var(--neon-blue) 2px, transparent 2px) 100% 0,
+    linear-gradient(to left, var(--neon-blue) 2px, transparent 2px) 100% 100%,
+    linear-gradient(to bottom, var(--neon-blue) 2px, transparent 2px) 0 0,
+    linear-gradient(to bottom, var(--neon-blue) 2px, transparent 2px) 100% 0,
+    linear-gradient(to top, var(--neon-blue) 2px, transparent 2px) 0 100%,
+    linear-gradient(to top, var(--neon-blue) 2px, transparent 2px) 100% 100%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.drop-zone:hover {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+  background-color: rgba(0, 243, 255, 0.05);
+}
+
+.upload-icon {
+  margin-bottom: 1.5rem;
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.drop-content h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.drop-content p { color: var(--text-dim); }
+
+.browse-link {
+  color: var(--neon-purple);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* -- CONTROLS -- */
+.conversion-controls, .result-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 2px solid var(--neon-purple);
+}
+
+.rename-container input, select {
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--neon-blue);
+  padding: 0.8rem;
+  color: #fff;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.rename-container input:focus, select:focus {
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+/* -- BUTTONS -- */
+button, .download-btn {
+  font-family: var(--font-display) !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700 !important;
+  border: 2px solid var(--neon-purple) !important;
+  background: transparent !important;
+  color: var(--neon-purple) !important;
+  box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px rgba(189, 0, 255, 0.2) !important;
+  transition: all 0.3s;
+  padding: 1rem !important;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+button:hover, .download-btn:hover {
+  background: var(--neon-purple) !important;
+  color: #000 !important;
+  box-shadow: 0 0 30px var(--neon-purple) !important;
+}
+
+/* Progress */
+.progress-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--glass-border);
+  text-align: center;
+}
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 1rem;
+}
+.progress-fill {
+  background: var(--neon-blue);
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Floating Icons */
+.floating-icon {
+  width: 50px; height: 50px;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  box-shadow: 0 0 10px var(--neon-blue);
+  margin-bottom: 1rem;
+  background: rgba(0,0,0,0.5);
+}
+
+/* --- MODAL --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal:not(.hidden) { opacity: 1; pointer-events: auto; }
+
+.modal-content {
+  width: 90%; max-width: 900px;
+  background: #050510;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--neon-blue);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.modal-header h2 {
+  font-family: var(--font-display);
+  color: var(--neon-blue);
+  text-transform: uppercase;
+}
+.close-modal {
+  color: var(--neon-pink);
+  font-size: 2rem;
+  background: none; border: none; cursor: pointer;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.modal-body { padding: 2rem; overflow-y: auto; }
+
+.category-section h3 {
+  color: var(--neon-purple);
+  font-family: var(--font-display);
+  border-bottom: 1px solid rgba(189, 0, 255, 0.3);
+  padding-bottom: 0.5rem; margin-bottom: 1rem;
+}
+
+.format-tag {
+  border: 1px solid var(--text-dim);
+  color: var(--text-dim);
+  padding: 0.3rem 0.8rem;
+  margin: 0.2rem;
+  display: inline-block;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.format-tag:hover {
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  background: rgba(0, 243, 255, 0.1);
+}
+
+.hidden { display: none !important; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  main { grid-template-columns: 1fr; max-width: 600px; }
+  .sidebar, .format-icons { display: none; }
+}
